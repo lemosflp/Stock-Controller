@@ -11,17 +11,14 @@ import lombok.Setter;
 @AllArgsConstructor
 public class StockResponse {
 
-    @JsonProperty("Product ID")
     private long id;
 
-    @JsonProperty("Product Name")
+//    @JsonProperty("product_name")
     private String name;
 
-    @JsonProperty("Quantity")
-    private int qtd;
+    private String qtd;
 
-    @JsonProperty("Price")
-    private Double price;
+    private String price;
 
     public StockResponse (Product product) {
         this.id = product.getId();
