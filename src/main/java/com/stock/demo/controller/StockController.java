@@ -2,8 +2,10 @@ package com.stock.demo.controller;
 
 import com.stock.demo.entity.Product;
 import com.stock.demo.request.CreateProductRequest;
+import com.stock.demo.request.UpdateProductRequest;
 import com.stock.demo.response.StockResponse;
 import com.stock.demo.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,10 +32,25 @@ public class StockController {
     }
 
     @PostMapping("create")
-    public StockResponse createProduct (@RequestBody CreateProductRequest createProductRequest) {
+    public StockResponse createProduct (@RequestBody @Valid CreateProductRequest createProductRequest) {
        Product product = productService.createProduct(createProductRequest);
 
        return new StockResponse(product);
     }
 
+    @PutMapping("updatePrice")
+    public StockResponse updatePrice (@Valid @RequestBody UpdateProductRequest updateProductRequest) {
+        Product product = productService.updatePrice(updateProductRequest);
+
+        return new StockResponse(product);
+    }
+
+    @PutMapping("updateType")
+    public StockResponse updateType (@Valid @RequestBody UpdateProductRequest updateProductRequest) {
+        Product product = productService.updateType(updateProductRequest);
+
+        return new StockResponse(product);
+    }
+
 }
+

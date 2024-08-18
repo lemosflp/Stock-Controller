@@ -21,14 +21,18 @@ public class Product {
     private String name;
 
     @Column(name = "quantity")
-    private String qtd;
+    private Integer qtd;
 
     @Column(name = "price")
-    private String price;
+    private Double price;
+
+    @Column(name = "productType")
+    private String productType;
 
     public Product (CreateProductRequest createProductRequest) {
         this.name = createProductRequest.getName();
         this.qtd = createProductRequest.getQtd();
         this.price = createProductRequest.getPrice();
+        this.productType = createProductRequest.getProductType();
     }
 }

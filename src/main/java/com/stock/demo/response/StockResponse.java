@@ -16,15 +16,18 @@ public class StockResponse {
 //    @JsonProperty("product_name")
     private String name;
 
-    private String qtd;
+    private Integer qtd;
 
-    private String price;
+    private Double price;
+
+    private String productType;
 
     public StockResponse (Product product) {
         this.id = product.getId();
         this.name = product.getName();
         this.qtd = product.getQtd();
         this.price = product.getPrice();
+        this.productType = product.getProductType();
     }
 
 }

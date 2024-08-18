@@ -6,6 +6,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,11 +18,14 @@ public class CreateProductRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-//    @JsonProperty("product_name")
+
+    @NotBlank(message = "Product name is required")
     private String name;
 
-    private String qtd;
+    private Integer qtd;
 
-    private String price;
+    private Double price;
+
+    private String productType;
 
 }
